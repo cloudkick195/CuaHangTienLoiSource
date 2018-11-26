@@ -17,6 +17,7 @@ namespace ConvenientStore_Pro
     {
         frm_SignOn SignOn;
         frm_SignOff signOff;
+        frm_Customer frm_Customer;
         frm_Sum Sum;
         ScannerBUS Scanner;
         SignOnBUS SignBus;
@@ -38,11 +39,13 @@ namespace ConvenientStore_Pro
             SignBus = new SignOnBUS();
             SignOn = new frm_SignOn();
             signOff = new frm_SignOff();
+            frm_Customer = new frm_Customer();
             Sum = new frm_Sum();
             Tender_CusBUS = new Tender_CusBUS();
             UC_SignOn.Instance.btn_SignOn.Click += Btn_SignOn_Click;
             UC_OK.Instance.btn_OK.Click += Btn_OK_Tool_Click;
             UC_Tool.Instance.btn_Off.Click += Btn_Off_Click;
+            UC_Tool.Instance.btn_Cus.Click += Btn_Cus_Click;
             UC_Tool.Instance.btn_Tender.Click += Btn_Tender_Click;
             UC_TenderCus.Instance.btn_Can.Click += Btn_Can_Click;
             UC_TenderCus.Instance.btn_Skip.Click += Btn_Skip_Click;
@@ -198,6 +201,7 @@ namespace ConvenientStore_Pro
                 }
                 else
                 {
+
                     DialogResult result = MessageBox.Show("Your password is wrong!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     if (result == DialogResult.OK)
                         Barcode_textBox.Text = null;
@@ -344,6 +348,15 @@ namespace ConvenientStore_Pro
         {
             signOff.ShowDialog();
             if(signOff.DialogResult==DialogResult.OK)
+            {
+                Sum.ShowDialog();
+            }
+        }
+        
+        private void Btn_Cus_Click(object sender, EventArgs e)
+        {
+            frm_Customer.ShowDialog();
+            if (frm_Customer.DialogResult == DialogResult.OK)
             {
                 Sum.ShowDialog();
             }

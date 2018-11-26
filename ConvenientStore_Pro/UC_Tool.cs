@@ -26,5 +26,10 @@ namespace ConvenientStore_Pro
         {
             InitializeComponent();
         }
+
+        private void btn_Off_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

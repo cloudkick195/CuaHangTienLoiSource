@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using System.Data.SqlClient;
 namespace DAO
 {
@@ -54,6 +55,13 @@ namespace DAO
             {
                 DisConnect();
             }
+        }
+        public DataTable GetData(string sql)
+        {
+            DataTable result = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql,cn);
+            da.Fill(result);
+            return result;
         }
         public SqlDataReader myExcuteReader(string sql)
         {

@@ -50,6 +50,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Customer.Designer.cs">
+      <DependentUpon>frm_Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_SignOff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
       <DependentUpon>UC_SignOn.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <EmbeddedResource Include="frm_Customer.resx">
+      <DependentUpon>frm_Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_printBill.resx">
       <DependentUpon>frm_printBill.cs</DependentUpon>
     </EmbeddedResource>
