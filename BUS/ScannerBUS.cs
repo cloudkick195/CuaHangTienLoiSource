@@ -14,6 +14,7 @@ namespace BUS
         {
             try
             {
+
                 return new ScannerDAO().GetBarcode(barcode);
             }
             catch (SqlException ex)

@@ -34,11 +34,17 @@ namespace BUS
                 throw ex;
             }
         }
-        public int Insert(Customer objCus)
+        public bool Insert(Customer objCus)
         {
             try
             {
-                return new CustomerDAO().Insert(objCus);
+                
+                if (checkCode(objCus.cusCode) == false)
+                {
+                    return false;
+                }
+                new CustomerDAO().Insert(objCus);
+                return true;
             }
             catch (Exception ex)
             {
@@ -60,7 +66,9 @@ namespace BUS
         {
             try
             {
+
                 return new CustomerDAO().Update(objCus);
+  
             }
             catch (Exception ex)
             {
@@ -78,5 +86,6 @@ namespace BUS
                 throw ex;
             }
         }
+
     }
 }
